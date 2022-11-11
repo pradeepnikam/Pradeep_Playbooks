@@ -3,10 +3,10 @@
   become: true
 
   tasks:
-    #    - name: install java SW
-    #      yum: 
-    #        name: java
-#          state: installed
+    - name: install java
+      yum:
+        name: java
+        state: installed
 
     - name: install wget command
       yum:
@@ -23,13 +23,14 @@
         state: present
         key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
-    - name: install jenkins SW
-      yum: 
+    - name: install jenkins sw
+      yum:
         name: jenkins
-        state: present
+        state: installed
 
-    - name: start jenkins service
+    - name: start jenkins
       service:
         name: jenkins
         state: started
         enabled: yes
+

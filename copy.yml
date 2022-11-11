@@ -1,0 +1,13 @@
+--- #file copy playbook
+- hosts: webservers
+  user: ansible
+  connection: ssh
+  become: true
+
+
+  tasks:
+    - name: start to copy files
+      copy:
+        src: /home/ansible/pradeep
+        dest: /home/ansible
+        owner: ansible

@@ -1,0 +1,13 @@
+--- #this is a task playbook
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+    - name: this is the istalaltion of httpd
+      action: yum name=htt state=present
+      ignore_errors: yes
+  
+

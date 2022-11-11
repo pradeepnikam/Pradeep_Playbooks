@@ -1,0 +1,13 @@
+--- #filescreation
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+    - name: This is for file creation
+      file: 
+        path: /home/ansible/playbook-test
+        state: touch
+

@@ -1,0 +1,35 @@
+--- # installation of jenkins
+- hosts: webservers
+  become: true
+
+  tasks:
+    #    - name: install java SW
+    #      yum: 
+    #        name: java
+#          state: installed
+
+    - name: install wget command
+      yum:
+        name: wget
+        state: present
+
+    - name: download jenkins SW
+      get_url:
+        url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+        dest: /etc/yum.repos.d/jenkins.repo
+
+    - name: Download jenkins key
+      rpm_key:
+        state: present
+        key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+    - name: install jenkins SW
+      yum: 
+        name: jenkins
+        state: present
+
+    - name: start jenkins service
+      service:
+        name: jenkins
+        state: started
+        enabled: yes

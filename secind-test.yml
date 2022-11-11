@@ -1,0 +1,19 @@
+---
+- name: my test play
+  hosts: webservers
+  connection: ssh
+  user: ansible
+  become: yes
+
+
+  tasks:
+    - name: installation of sw
+      yum:
+        name: httpd
+        state: installed
+
+
+    - name: start service
+      service: 
+        name: httpd
+        state: started

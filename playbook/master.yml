@@ -1,0 +1,6 @@
+--- # testing roles concept
+- hosts: webservers
+  become: true
+
+  roles:
+    - testrole

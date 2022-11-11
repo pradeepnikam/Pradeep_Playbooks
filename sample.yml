@@ -1,0 +1,16 @@
+--- # this is a test playbook
+- hosts: webservers
+  become: true
+
+  tasks:
+    - name: creating a file with anisbile playbook
+      file: path=/tmp/pradeep.txt state=touch
+
+    - name: creating a directory with ansible playbook
+      file: path=/tmp/newdir state=directory
+
+    - name: copying a file to host
+      copy: src=./abc100 dest=/home/ansible/
+    
+    - name: excuting shell script with ansible playbook
+      command: ./abc.sh

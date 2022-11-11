@@ -1,0 +1,10 @@
+--- #create users playbook
+- hosts: webservers
+  user: ansible
+  become: yes
+  connection: ssh
+
+
+  tasks:
+    - name: Creation of a user
+      user: name=joker

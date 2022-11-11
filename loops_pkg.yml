@@ -1,0 +1,15 @@
+--- # this is the multiple installement
+- hosts: webservers
+  become: true
+
+
+  tasks:
+    - name: installation of multiple pkgs
+      yum: name='{{item}}' state=installed
+      with_items:
+            - httpd
+            - java
+            - docker
+            - mysql
+            - git
+            - tree

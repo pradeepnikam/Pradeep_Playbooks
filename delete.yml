@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+  user: ansible
+  connection: ssh
+  become: yes
+
+
+  tasks:
+    - name: Deletion of the file
+      file:
+        path: /home/ansible/playbook-test
+        state: absent
